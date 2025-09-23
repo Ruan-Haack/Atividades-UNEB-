@@ -1,5 +1,4 @@
 #include <stdio.h>
-#include <math.h>
 #define A 5
 
 void preenchermatrizAssimetrica(int matriz[A][A])
