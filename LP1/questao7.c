@@ -1,5 +1,4 @@
 #include <stdio.h>
-#include <math.h>
 #define A 5
 
 void preenchermatrizAssimetrica(int matriz[A][A])
@@ -33,7 +32,7 @@ int main()
     int cont = 0;
     preenchermatrizAssimetrica(matrizA); //ASSIMETRICA
     // preenchermatrizSimetrica(matrizA); //SIMÉTRICA
-    
+
     for (int i = 0; i < A; i++)
     {
         for (int j = 0; j < A; j++)
