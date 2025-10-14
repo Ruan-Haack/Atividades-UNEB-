@@ -85,7 +85,7 @@ void login()
                 temMaiuscula = 1;
             }
             // 3. Validação de símbolo
-            if (senha[i] == '#' || senha[i] == '!' || senha[i] == '-')
+            if (senha[i] == '#' || senha[i] == '!' || senha[i] == '-' || senha[i] == '@' || senha[i] == '$')
             {
                 temSimbolo = 1;
             }
@@ -130,9 +130,16 @@ void menu(Aluno turmaSI[TAM])
         switch (opc)
         {
         case 1:
+            if (turmaSI[0].idade == -1)
+            {
+                system("clear"); // Opcional: considerar outras formas de limpar a tela
+                ler(turmaSI, TAM);
+                break;
+            }
             system("clear");
-            ler(turmaSI, TAM);
+            printf("[ERRO] Alunos já cadastrados!!\n");
             break;
+
         case 2:
             system("clear");
             imprimirAlunos(turmaSI, TAM);
@@ -301,6 +308,10 @@ void ordenarPorNome(Aluno alunos[], int n)
 int main()
 {
     Aluno turmaSI[TAM];
+    for (int i = 0; i < TAM; i++)
+    {
+        turmaSI[i].idade = -1; // Inicializa todas as idades como -1
+    }
     login();
     menu(turmaSI);
 
