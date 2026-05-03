@@ -1,20 +1,23 @@
+import java.util.ArrayList;
 public class Aplicativo
 {
     private String Nome;
     private String objetivo;
+    private int usuarios;
     private double mb;
     private double precoMensal;
     private EmpresaTerceira empresa;
     
     public Aplicativo(String nome, String objetivo, double mb, 
-    double precoMensal, EmpresaTerceira empresa)
+    double precoMensal, EmpresaTerceira empresa, int usr)
 {
     
     this.Nome = nome;
     this.objetivo = objetivo;
     this.mb = mb;
     this.precoMensal = precoMensal;
-    this.empresa = empresa; 
+    this.empresa = empresa;
+    this.usuarios = usr;
     
 }
 
@@ -49,6 +52,11 @@ public class Aplicativo
         this.empresa = empresa;
     }
     
+    public void setUsr(int Usr)
+    {
+        this.usuarios = Usr;
+    }
+    
     //GETTERS
     
     public String getNome()
@@ -76,6 +84,11 @@ public class Aplicativo
         return this.empresa;
     }
     
+    public int getUsr()
+    {
+        return this.usuarios;
+    }
+    
     public boolean podeSubstituir(Aplicativo outro)
     {
         return this.objetivo.equals(outro.getObjetivo()) 
@@ -87,6 +100,24 @@ public class Aplicativo
         System.out.println("Nome: " + this.Nome);
         System.out.println("Preço mensal: " + this.precoMensal);
         System.out.println("Empresa: " + this.empresa.getNome());
+    }
+    
+    public void AddUsr() 
+    {
+        usuarios = usuarios + 1;
+    }
+    
+    public static Aplicativo appcomMaisUsuarios(ArrayList<Aplicativo> lista) 
+    {
+    
+        Aplicativo maior = lista.get(0);
+    
+        for (Aplicativo app : lista) {
+            if (app.getUsr() > maior.getUsr()) {
+                maior = app;
+            }
+        }
+        return maior;
     }
     
 }
