@@ -31,13 +31,16 @@ void Pilha::empilhar(int n)
 {
     Nodo *novo;
     novo = new Nodo;
+    
     if (novo == nullptr)
         exit(1);
+    
     novo->info = n;
     novo->prox = nullptr;
 
-    if (topo != nullptr)
+    if (topo != nullptr) //nao eh o ultimo elemento da pilha
         novo->prox = topo;
+
     topo = novo;
 };
 
